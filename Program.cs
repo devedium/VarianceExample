@@ -366,6 +366,10 @@
                 Address = "321 Oak St"
             });
 
+            IEventPublisher<Entity> entityPublisher = new GenericEventPublisher();
+            IEventPublisher<Customer> customerPublisher = entityPublisher;
+            IEventPublisher<Order> orderPublisher = entityPublisher;
+            entityPublisher.OnCreate(new Customer { Id = 1, Name = "John Doe" });
 
         }
         static void LogEntity(Entity entity)
